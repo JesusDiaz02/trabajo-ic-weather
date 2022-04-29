@@ -52,11 +52,11 @@ data.RainTomorrow.replace(['Yes','No'], [1,0], inplace=True)
 data.dropna(axis=0,how='any',inplace=True) 
 
 #partir la tabla en dos
-data_train = data[:78001]
-data_test = data[78001:]
+data_train = data[:80001]
+data_test = data[80001:]
 
 x=np.array(data_train.drop(['RainTomorrow'], 1))
-y=np.array(data_train.RainTomorrow)# 0 sale 1 no sale
+y=np.array(data_train.RainTomorrow)# 0 no llueve 1 llueve
 
 x_train, x_test, y_train, y_test= train_test_split(x, y, test_size=0.5)
 
@@ -80,7 +80,7 @@ print(f'accuracy de train de entrenamiento:{logreg.score(x_train, y_train)}')
 #accuracy de entrenamiento test
 print(f'accuracy de test de entrenamiento:{logreg.score(x_test,y_test)}')
 #accuracy de validacion
-print(f'accuracy de validacion:{logreg.score(x_test_out,y_test_out)}')
+#print(f'accuracy de validacion:{logreg.score(x_test_out,y_test_out)}')
 
 # seleccionar maquina soporte vectorial
 svc = SVC(gamma='auto')
@@ -98,7 +98,7 @@ print(f'accuracy de train de entrenamiento:{svc.score(x_train, y_train)}')
 #accuracy de entrenamiento test
 print(f'accuracy de test de entrenamiento:{svc.score(x_test,y_test)}')
 #accuracy de validacion
-print(f'accuracy de validacion:{svc.score(x_test_out,y_test_out)}')
+#print(f'accuracy de validacion:{svc.score(x_test_out,y_test_out)}')
 
 
 
@@ -118,7 +118,7 @@ print(f'accuracy de train de entrenamiento:{arbol.score(x_train, y_train)}')
 #accuracy de entrenamiento test
 print(f'accuracy de test de entrenamiento:{arbol.score(x_test,y_test)}')
 #accuracy de validacion
-print(f'accuracy de validacion:{arbol.score(x_test_out,y_test_out)}')
+#print(f'accuracy de validacion:{arbol.score(x_test_out,y_test_out)}')
 
 
 # seleccionar modelo Naive Bayes
@@ -137,7 +137,7 @@ print(f'accuracy de train de entrenamiento:{gnb.score(x_train, y_train)}')
 #accuracy de entrenamiento test
 print(f'accuracy de test de entrenamiento:{gnb.score(x_test,y_test)}')
 #accuracy de validacion
-print(f'accuracy de validacion:{gnb.score(x_test_out,y_test_out)}')
+#print(f'accuracy de validacion:{gnb.score(x_test_out,y_test_out)}')
 
 # seleccionar modelo KNN
 knn = neighbors.KNeighborsClassifier()
@@ -155,4 +155,4 @@ print(f'accuracy de train de entrenamiento:{knn.score(x_train, y_train)}')
 #accuracy de entrenamiento test
 print(f'accuracy de test de entrenamiento:{knn.score(x_test,y_test)}')
 #accuracy de validacion
-print(f'accuracy de validacion:{knn.score(x_test_out,y_test_out)}')
+#print(f'accuracy de validacion:{knn.score(x_test_out,y_test_out)}')
